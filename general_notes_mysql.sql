@@ -659,4 +659,4 @@ SELECT surname, givenname, type, cc, number, ext FROM employees JOIN phone ON em
 +---------+------------+------+------+------------+------+
 7 rows in set (0.02 sec)
 */
-
+edit
