@@ -66,7 +66,7 @@ mysql [-u <username>] [-p<password>] [-h <host>] [<database>]
 
 /*Example*/
 
-mysql -p root -u 
+mysql -u root -p 
 Enter password:
 
 
