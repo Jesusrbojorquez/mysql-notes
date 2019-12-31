@@ -66,7 +66,7 @@ mysql [-u <username>] [-p<password>] [-h <host>] [<database>]
 
 /*Example*/
 
-mysql -u root -p 
+mysql -u root -p
 Enter password:
 
 
@@ -107,10 +107,10 @@ DROP DATABASE IF EXISTS centauridb;/*If the database doesn't exists it will do n
 /*Create table
 Full info on: https://mariadb.com/kb/en/library/create-table/ */
 
-CREATE TABLE tablename (<column_definitions>);
-CREATE TABLE IF NOT EXISTS (<column_definitions>);
+CREATE TABLE table_name (<column_definitions>);
+CREATE TABLE IF NOT EXISTS table_name (<column_definitions>);
 
-/*The <column_definitions> part has the following basic syntax: 
+/*The <column_definitions> part has the following basic syntax:
 Notes:  | means or (exclusive or)
         [] means it is optional
 		<> means we need to fill in*/
@@ -126,10 +126,10 @@ Notes:  | means or (exclusive or)
 /*Example*/
 
 CREATE TABLE employees(
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	surname VARCHAR(100), 
-	givenname VARCHAR(100), 
-	pref_name VARCHAR(50), 
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	surname VARCHAR(100),
+	givenname VARCHAR(100),
+	pref_name VARCHAR(50),
 	birthday DATE COMMENT 'approximate birthday OK'
 );
 
@@ -226,7 +226,7 @@ ALTER TABLE employees ADD username VARCHAR(20) AFTER pref_name;
 
 /*To modify a column we can use ALTER */
 
-MODIFY <column_name> <column_definition> 
+MODIFY <column_name> <column_definition>
 
 /*Example*/
 
@@ -248,7 +248,7 @@ ALTER TABLE employees MODIFY pref_name VARCHAR(25);
 
 /*To drop a column we can also use ALTER TABLE */
 
-ALTER TABLE tablename DROP <column_name> 
+ALTER TABLE tablename DROP <column_name>
 
 /*Example*/
 
@@ -284,7 +284,7 @@ Note: <> Are replaced with our own values
       [] Are optional
 	  |  Means exclusive or
 	  {} Specify a mandatory section
-	     The expression part is the value we want to put in a column 
+	     The expression part is the value we want to put in a column
 		 Full documentation: https://mariadb.com/kb/en/insert */
 
 INSERT [INTO] <tablename> [(<column_name>[, <column_name>, ...)]
@@ -375,7 +375,7 @@ mysql> SELECT * FROM employees;
 8 rows in set (0.00 sec)
 */
 
-/*To insert data from another table we use the next syntax: 
+/*To insert data from another table we use the next syntax:
 Full documentation: https://mariadb.com/kb/en/insert-select/ */
 
 INSERT INTO <table_1> [(<column_name>[, <column_name>, ...])]
@@ -387,7 +387,7 @@ FROM <table_2>;
 INSERT INTO employees (surname, givenname, birthday) SELECT lastname, firstname, bday FROM names;
 
 /*Insert data from a file
-Notes: -if the LOCAL option is used, it will look for the file on the filesystem that we are running our client on, 
+Notes: -if the LOCAL option is used, it will look for the file on the filesystem that we are running our client on,
        otherwise it will look in its own filesystem*/
 LOAD DATA [LOCAL] INFILE '<filename>'
 INTO TABLE <tablename>
@@ -395,7 +395,7 @@ INTO TABLE <tablename>
 
 /*Example
 Note: we explicitly tells the command that the lines terminates in '\r\n' because we are in a windows machine
-      full documentation: https://mariadb.com/kb/en/load-data-infile/ 
+      full documentation: https://mariadb.com/kb/en/load-data-infile/
 	                      https://dev.mysql.com/doc/refman/5.7/en/load-data-local.html*/
 
 LOAD DATA LOCAL INFILE 'D:/CursosPresenciales/FullStack/JESUS/Programs/testrow.txt' INTO TABLE employees LINES TERMINATED BY '\r\n'  (id, birthday, surname, givenname);
@@ -468,7 +468,7 @@ DELETE FROM employees WHERE id BETWEEN 8 AND 30;
 
 DELETE FROM employees WHERE givenname = "Spencer" AND surname = "Kimball";
 
-/*To retrieve data we use SELECT 
+/*To retrieve data we use SELECT
 Note: int the <what> part we specify the columns that we want to retrieve*/
 
 SELECT <what> FROM <table_name> [WHERE <conditions>] [ORDER BY <column_name>];
