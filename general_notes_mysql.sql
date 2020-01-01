@@ -16,6 +16,11 @@ CREATE USER 'username'@'host' IDENTIFIED BY 'password';
 
 CREATE USER 'centauri'@'localhost' IDENTIFIED BY 'centauri';
 
+/*show users */
+
+SELECT user FROM mysql.user;
+SELECT user, host FROM mysql.user;
+
 /*Granting permissions
 Full info on: https://mariadb.com/kb/en/library/grant/ */
 
