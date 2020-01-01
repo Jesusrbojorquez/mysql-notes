@@ -10,6 +10,7 @@ Enter password: mypassword
 /*create users
 Full info on: https://mariadb.com/kb/en/library/create-user/ */
 
+CREATE [OR REPLACE] USER [IF NOT EXISTS] username IDENTIFIED BY 'password';
 CREATE USER 'username'@'host' IDENTIFIED BY 'password';
 
 /*Example*/
