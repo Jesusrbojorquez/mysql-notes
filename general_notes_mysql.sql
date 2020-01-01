@@ -50,6 +50,7 @@ SET PASSWORD FOR 'centauri'@'localhost' = PASSWORD('1234');
 /*Removing users
 Full info on: https://mariadb.com/kb/en/library/drop-user/ */
 
+DROP USER [IF EXISTS] user_name [, user_name] ...;
 DROP USER <user>;
 
 /*Example*/
