@@ -403,7 +403,8 @@ INTO TABLE <tablename>
 /*Example
 Note: we explicitly tells the command that the lines terminates in '\r\n' because we are in a windows machine
       full documentation: https://mariadb.com/kb/en/load-data-infile/
-	                      https://dev.mysql.com/doc/refman/5.7/en/load-data-local.html*/
+	                  https://dev.mysql.com/doc/refman/5.7/en/load-data-local.html
+			  https://dev.mysql.com/doc/refman/5.7/en/load-data.html*/
 
 LOAD DATA LOCAL INFILE 'D:/CursosPresenciales/FullStack/JESUS/Programs/testrow.txt' INTO TABLE employees LINES TERMINATED BY '\r\n'  (id, birthday, surname, givenname);
 /*
